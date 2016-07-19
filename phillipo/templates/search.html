@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}Search{% endblock %}
+
+{% block content %}
+    <style>
+        .button
+        {
+            background-color: #0000cc;
+            border: none;
+            color: white;
+            padding: 3px 26px;
+            text-align: center;
+            display: inline-block;
+            font-size: 16px;
+        }
+    </style>
+
+    <h2>Search Phillipo Members</h2>
+
+    <div class="searchbox" style="margin-top:50px">
+        <input type="text" id="query" size="30">
+        <input type="submit" class="button" value="Search" onClick="search()">
+    </div>
+
+    <br><br>
+
+    {% for member in members %}
+        <div class="memberblock">
+          <img src="{% static '' %}{{ member.photo }}" alt="profile_photo">
+          <p> Name: {{ member.name }} </p>
+          <p> Address: {{ member.address }}</p>
+          <p> D.O.B.: {{ member.birth_month }} {{ member.birth_day}}, {{member.birth_year}}</p>
+          <p> Profession: {{ member.profession }} </p>
+          <p> Ministry: {{ member.ministry }} </p>
+          <p> Class Number: {{ member.classNumber }} </p>
+        </div>
+    {% endfor %}
+{% endblock %}

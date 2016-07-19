@@ -1,0 +1,36 @@
+{% load staticfiles %}
+
+<html>
+    <head>
+      <title>{% block title %}{% endblock %}</title>
+      <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    </head>
+
+    <body>
+      <script src="{% static 'js/action.js' %}"></script>
+
+      <!-- navigation bar to appear at the top -->
+
+      <div name="navbar">
+        <ul>
+            <li><a id="home" class="active" href="#" onclick="navigate(this.id)">Home</a></li>
+            <li><a id="mems" href="#" onclick="navigate(this.id)">Members</a></li>
+            <li><a id="search" href="#" onclick="navigate(this.id)">Search</a></li>
+            <li><a id="admin" href="#" onclick="navigate(this.id)">Admin</a></li>
+        </ul>
+      </div>
+
+      <!-- end of nav bar -->
+
+      <!-- body -->
+
+      <div name="content" style="padding:20px;margin-top:30px;">
+          {% block content %}
+          {% endblock %}
+      </div>
+
+      <!-- end of body -->
+
+    </body>
+
+</html>

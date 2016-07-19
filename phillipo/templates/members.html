@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}Members{% endblock %}
+
+{% block content %}
+    <h2>Phillipo Members</h2>
+
+    {% for member in members %}
+        <div class="memberblock">
+          <img src="{% static '' %}{{ member.photo }}" alt="profile_photo">
+          <p> Name: {{ member.name }} </p>
+          <p> Address: {{ member.address }}</p>
+          <p> D.O.B.: {{ member.birth_month }} {{ member.birth_day}}, {{member.birth_year}}</p>
+          <p> Profession: {{ member.profession }} </p>
+          <p> Ministry: {{ member.ministry }} </p>
+          <p> Class Number: {{ member.classNumber }} </p>
+        </div>
+    {% endfor %}
+{% endblock %}
