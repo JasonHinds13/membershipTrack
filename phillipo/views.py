@@ -1,4 +1,3 @@
-import requests
 from django.shortcuts import render
 from django.shortcuts import render_to_response
 from rest_framework.views import APIView
