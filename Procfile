@@ -1,1 +1,1 @@
-web: gunicorn membership.wsgi --log-file -
+web: gunicorn membership.wsgi:phillipo --log-file -
