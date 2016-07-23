@@ -1,1 +1,1 @@
-web: gunicorn membership.wsgi:phillipo --log-file -
+web: gunicorn membership.wsgi:phillipo --preload --log-file -
