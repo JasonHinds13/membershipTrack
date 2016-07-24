@@ -4,17 +4,55 @@
 {% block title %}Members{% endblock %}
 
 {% block content %}
-    <h2>Phillipo Members</h2>
+    <script>
+      function navmonth(monthId)
+      {
+        location.href="/members/"+monthId;
+      }
+    </script>
+
+    <h2>Phillippo Members</h2> <br>
+
+    <h2>View Members by Month:</h2>
+
+    <div class="monthsbox">
+      <input id="January" type="submit" class="button" value="Jan" onClick="navmonth(this.id)">
+      <input id="February" type="submit" class="button" value="Feb" onclick="navmonth(this.id)">
+      <input id="March" type="submit" class="button" value="Mar" onclick="navmonth(this.id)">
+      <input id="April" type="submit" class="button" value="Apr" onclick="navmonth(this.id)">
+      <input id="May" type="submit" class="button" value="May" onclick="navmonth(this.id)">
+      <input id="June" type="submit" class="button" value="Jun" onclick="navmonth(this.id)">
+      <input id="July" type="submit" class="button" value="Jul" onclick="navmonth(this.id)">
+      <input id="August" type="submit" class="button" value="Aug" onclick="navmonth(this.id)">
+      <input id="September" type="submit" class="button" value="Sep" onclick="navmonth(this.id)">
+      <input id="October" type="submit" class="button" value="Oct" onclick="navmonth(this.id)">
+      <input id="November" type="submit" class="button" value="Nov" onclick="navmonth(this.id)">
+      <input id="December" type="submit" class="button" value="Dec" onclick="navmonth(this.id)">
+    </div>
+
+    {% if not members %}
+
+        <hr>
+          <p><i>No Results Found</i><p>
+        <hr>
+
+    {% else %}
 
     {% for member in members %}
-        <div class="memberblock">
-          <img src="{% static '' %}{{ member.photo }}" alt="profile_photo">
-          <p> Name: {{ member.name }} </p>
-          <p> Address: {{ member.address }}</p>
-          <p> D.O.B.: {{ member.birth_month }} {{ member.birth_day}}, {{member.birth_year}}</p>
-          <p> Profession: {{ member.profession }} </p>
-          <p> Ministry: {{ member.ministry }} </p>
-          <p> Class Number: {{ member.classNumber }} </p>
+      <hr>
+      <div class="memberblock">
+        <div class="memberpic"><img src="{% static '' %}{{ member.photo }}" alt="profile_photo"></div>
+        <div class="membercontent">
+            <p> Name: {{ member.name }} </p>
+            <p> Address: {{ member.address }}</p>
+            <p> D.O.B.: {{ member.birth_month }} {{ member.birth_day}}, {{member.birth_year}}</p>
+            <p> Profession: {{ member.profession }} </p>
+            <p> Ministry: {{ member.ministry }} </p>
+            <p> Class Number: {{ member.classNumber }} </p>
         </div>
+      </div>
+      <hr>
+      <br><br>
     {% endfor %}
+    {% endif %}
 {% endblock %}

@@ -4,18 +4,16 @@
 {% block title %}Search{% endblock %}
 
 {% block content %}
-    <style>
-        .button
-        {
-            background-color: #0000cc;
-            border: none;
-            color: white;
-            padding: 3px 26px;
-            text-align: center;
-            display: inline-block;
-            font-size: 16px;
-        }
-    </style>
+
+    <script>
+      //handles queries
+      function search()
+      {
+        var lookup = document.getElementById("query").value;
+        var newlook = lookup.replace(" ","_");
+        location.href="/search/"+newlook;
+      }
+    </script>
 
     <h2>Search Phillipo Members</h2>
 
@@ -26,15 +24,29 @@
 
     <br><br>
 
+    {% if not members %}
+
+        <hr>
+          <p><i>No Results Found</i><p>
+        <hr>
+
+    {% else %}
+
     {% for member in members %}
+        <hr>
         <div class="memberblock">
-          <img src="{% static '' %}{{ member.photo }}" alt="profile_photo">
-          <p> Name: {{ member.name }} </p>
-          <p> Address: {{ member.address }}</p>
-          <p> D.O.B.: {{ member.birth_month }} {{ member.birth_day}}, {{member.birth_year}}</p>
-          <p> Profession: {{ member.profession }} </p>
-          <p> Ministry: {{ member.ministry }} </p>
-          <p> Class Number: {{ member.classNumber }} </p>
+          <div class="memberpic"><img src="{% static '' %}{{ member.photo }}" alt="profile_photo"></div>
+          <div class="membercontent">
+              <p> Name: {{ member.name }} </p>
+              <p> Address: {{ member.address }}</p>
+              <p> D.O.B.: {{ member.birth_month }} {{ member.birth_day}}, {{member.birth_year}}</p>
+              <p> Profession: {{ member.profession }} </p>
+              <p> Ministry: {{ member.ministry }} </p>
+              <p> Class Number: {{ member.classNumber }} </p>
+          </div>
         </div>
+        <hr>
+        <br><br>
     {% endfor %}
+    {% endif %}
 {% endblock %}

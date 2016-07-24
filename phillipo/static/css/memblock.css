@@ -1,0 +1,23 @@
+.button
+{
+    background-color: #0000cc;
+    border: none;
+    color: white;
+    padding: 3px 26px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.memberblock
+{
+  background-color: white;
+}
+
+.memberpic img
+{
+  float:left;
+  height: 200px;
+  width: 200px;
+  margin-right: 10px;
+}
