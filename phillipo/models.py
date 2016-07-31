@@ -18,7 +18,7 @@ MONTHS = (
 # Create your models here.
 
 class Member(models.Model):
-    photo = models.ImageField(upload_to='phillipo/static/images/')
+    photo = models.ImageField(upload_to='/images/')
 
     name = models.CharField(max_length=255)
     address = models.CharField(max_length=255)
