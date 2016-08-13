@@ -23,7 +23,8 @@ function navigate(navId){
 function search()
 {
   var lookup = document.getElementById("query").value;
-  location.href="/search/"+lookup;
+  var newlook = lookup.replace(" ", "_");
+  location.href="/search/"+newlook;
 }
 
 //handles view by month

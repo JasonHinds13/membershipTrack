@@ -37,6 +37,8 @@ def searchq(request, query):
     if "_" in query:
         query = query.replace("_", " ")
 
+    query = query.lower()
+
     for member in members:
         if (query in str(member.name).lower() or query in str(member.address).lower()
             or query in str(member.profession).lower() or query in str(member.ministry).lower()
