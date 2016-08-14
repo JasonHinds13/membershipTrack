@@ -18,12 +18,12 @@ MONTHS = (
 # Create your models here.
 
 class Member(models.Model):
-    photo = models.ImageField(upload_to='images/')
+    photo = models.ImageField(upload_to='images/', max_length=255)
 
     name = models.CharField(max_length=255)
     address = models.CharField(max_length=255)
 
-    birth_month = models.CharField(max_length=9, choices=MONTHS)
+    birth_month = models.CharField(max_length=255, choices=MONTHS)
     birth_day = models.CharField(max_length=31, choices=[(str(x), str(x)) for x in range(1, 32)])
     birth_year = models.CharField(max_length=255)
 
@@ -33,3 +33,7 @@ class Member(models.Model):
 
     def __str__(self):
         return self.name
+
+    def save(self, **kwargs):
+         self.full_clean()
+         super(Member, self).save(**kwargs)

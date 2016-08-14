@@ -25,7 +25,7 @@ SECRET_KEY = '19@ww7h9(07gxci^4$w1a04@#smn*bv%4#-njx7*4tk!@b589p'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['http://phillippotrack.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -78,13 +78,20 @@ WSGI_APPLICATION = 'membership.wsgi.application'
 
 DATABASES = {
     'default': {
-        #'ENGINE': 'django.db.backends.postgresql',
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        #'CONN_MAX_AGE': 500,
+        #'ENGINE': 'django.db.backends.sqlite3',
+        #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd6oi00032i5vh4',
+        'USER': 'rmxxfeaajbrutw',
+        'PASSWORD': 's7ecCee_JP7ACP8AetByasn69z',
+        'HOST': 'ec2-50-17-227-146.compute-1.amazonaws.com',
+        'PORT': '5432',
+        'URL': 'postgres://rmxxfeaajbrutw:s7ecCee_JP7ACP8AetByasn69z@ec2-50-17-227-146.compute-1.amazonaws.com:5432/d6oi00032i5vh4'
     }
 }
 
+db_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_env)
 #DATABASES['default'] = dj_database_url.config()
 #DATABASES['default']['CONN_MAX_AGE'] = 500
 
