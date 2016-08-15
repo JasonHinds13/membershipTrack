@@ -78,6 +78,12 @@ WSGI_APPLICATION = 'membership.wsgi.application'
 
 DATABASES = {
     'default': {
+        #'ENGINE': 'django.db.backends.mysql',
+        #'NAME': 'sql5131421',
+        #'USER': 'sql5131421',
+        #'PASSWORD': 'xXN439uIvv',
+        #'HOST': 'sql5.freemysqlhosting.net',
+        #'PORT': '3306',
         #'ENGINE': 'django.db.backends.sqlite3',
         #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -93,7 +99,7 @@ DATABASES = {
 db_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_env)
 #DATABASES['default'] = dj_database_url.config()
-#DATABASES['default']['CONN_MAX_AGE'] = 500
+DATABASES['default']['CONN_MAX_AGE'] = 500
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/

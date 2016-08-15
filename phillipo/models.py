@@ -24,7 +24,7 @@ class Member(models.Model):
     address = models.CharField(max_length=255)
 
     birth_month = models.CharField(max_length=255, choices=MONTHS)
-    birth_day = models.CharField(max_length=31, choices=[(str(x), str(x)) for x in range(1, 32)])
+    birth_day = models.CharField(max_length=255, choices=[(str(x), str(x)) for x in range(1, 32)])
     birth_year = models.CharField(max_length=255)
 
     profession = models.CharField(max_length=255)
