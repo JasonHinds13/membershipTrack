@@ -101,6 +101,13 @@ DATABASES['default'].update(db_env)
 #DATABASES['default'] = dj_database_url.config()
 DATABASES['default']['CONN_MAX_AGE'] = 500
 
+# Cloudinary settings
+CLOUDINARY = {
+  'cloud_name': 'deookejpk',
+  'api_key': '442725612227446',
+  'api_secret': 'uTXT-qEdnOK6wygyf2wYOLQXcUQ',
+}
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 

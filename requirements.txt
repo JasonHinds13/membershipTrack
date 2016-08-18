@@ -7,4 +7,5 @@ gunicorn==19.6.0
 virtualenv==15.0.2
 whitenoise==3.2
 psycopg2==2.6.2
+cloudinary==0.2.1
 -e hg+https://bitbucket.org/etienned/pil-2009-raclette/#egg=PIL

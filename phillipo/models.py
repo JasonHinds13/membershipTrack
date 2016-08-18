@@ -1,4 +1,5 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 MONTHS = (
         ('Jan','January'),
@@ -18,7 +19,7 @@ MONTHS = (
 # Create your models here.
 
 class Member(models.Model):
-    photo = models.ImageField(upload_to='images/', max_length=255)
+    photo = CloudinaryField('pro_pic')
 
     name = models.CharField(max_length=255)
     address = models.CharField(max_length=255)

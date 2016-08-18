@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import models, migrations
+import cloudinary.models
 
 
 class Migration(migrations.Migration):
@@ -14,7 +15,7 @@ class Migration(migrations.Migration):
             name='Member',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('photo', models.ImageField(max_length=255, upload_to=b'images/')),
+                ('photo', cloudinary.models.CloudinaryField(max_length=255, verbose_name=b'pro_pic')),
                 ('name', models.CharField(max_length=255)),
                 ('address', models.CharField(max_length=255)),
                 ('birth_month', models.CharField(max_length=255, choices=[(b'Jan', b'January'), (b'Feb', b'February'), (b'Mar', b'March'), (b'Apr', b'April'), (b'May', b'May'), (b'Jun', b'June'), (b'Jul', b'July'), (b'Aug', b'August'), (b'Sep', b'September'), (b'Oct', b'October'), (b'Nov', b'November'), (b'Dec', b'December')])),
