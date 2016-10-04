@@ -40,10 +40,7 @@ def searchq(request, query):
     query = query.lower()
 
     for member in members:
-        if (query in str(member.name).lower() or query in str(member.address).lower()
-            or query in str(member.profession).lower() or query in str(member.ministry).lower()
-            or query in str(member.classNumber).lower()):
-
+        if (query in str(member.name).lower() or query in str(member.classNumber).lower()):
             results.append(member)
 
     return render_to_response('search.html', {"members":results})
