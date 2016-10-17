@@ -33,3 +33,15 @@ li a:hover:not(.active)
 {
     background-color: #0000b2;
 }
+
+#navbar
+{
+    position: relative;
+}
+
+#admin #register
+{
+   position: absolute;
+   right: 0px;
+   background-color: red;
+}

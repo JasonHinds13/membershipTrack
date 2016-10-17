@@ -3,19 +3,22 @@
 function navigate(navId){
 
   if(navId == "home"){
-    location.href="/"
+    location.href="/";
   }
 
   else if (navId == "mems"){
-    location.href="/members"
+    location.href="/members";
   }
 
   else if (navId == "search"){
-    location.href="/search"
+    location.href="/search";
   }
 
   else if (navId == "admin"){
-    location.href="/admin"
+    location.href="/admin";
+  }
+  else if(navId == "register"){
+    location.href="/register";
   }
 }
 

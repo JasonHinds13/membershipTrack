@@ -1,34 +1,55 @@
+window.onload = function(){
 
-//control nav bar navigations
-function navigate(navId){
-
-  if(navId == "home"){
-    location.href="/"
+  if (location.pathname == "/"){
+    var x = document.querySelector("#home");
+    x.setAttribute("class","active");
   }
-
-  else if (navId == "mems"){
-    location.href="/members"
+  else if(location.pathname == "/members/"){
+    var x = document.querySelector("#mems");
+    x.setAttribute("class","active");
   }
-
-  else if (navId == "search"){
-    location.href="/search"
+  else if(location.pathname == "/search/"){
+    var x = document.querySelector("#search");
+    x.setAttribute("class","active");
   }
-
-  else if (navId == "admin"){
-    location.href="/admin"
+  else if(location.pathname == "/register/"){
+    var x = document.querySelector("#register");
+    x.setAttribute("class","active");
   }
 }
+  //control nav bar navigations
+  function navigate(navId){
 
-//handles queries
-function search()
-{
-  var lookup = document.getElementById("query").value;
-  var newlook = lookup.replace(" ", "_");
-  location.href="/search/"+newlook;
-}
+    if(navId == "home"){
+      location.href="/";
+    }
 
-//handles view by month
-function navmonth(monthId)
-{
-  location.href="/members/"+monthId;
-}
+    else if (navId == "mems"){
+      location.href="/members";
+    }
+
+    else if (navId == "search"){
+      location.href="/search";
+    }
+
+    else if (navId == "admin"){
+      location.href="/admin";
+    }
+    else if(navId == "register"){
+      location.href="/register";
+    }
+  }
+
+  //handles queries
+  function search()
+  {
+    var lookup = document.getElementById("query").value;
+    var newlook = lookup.replace(" ", "_");
+    location.href="/search/"+newlook;
+  }
+
+  //handles view by month
+  function navmonth(monthId)
+  {
+    location.href="/members/"+monthId;
+  }

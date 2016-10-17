@@ -12,6 +12,21 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
+            name='Contact',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('name', models.CharField(max_length=255)),
+                ('relationship', models.CharField(max_length=255)),
+                ('home_address', models.CharField(max_length=255)),
+                ('work_address', models.CharField(max_length=255)),
+                ('email_address', models.CharField(max_length=255)),
+                ('cell_phonenumber', models.CharField(max_length=255)),
+                ('home_phonenumber', models.CharField(max_length=255)),
+                ('work_phonenumber', models.CharField(max_length=255)),
+                ('church', models.CharField(max_length=255)),
+            ],
+        ),
+        migrations.CreateModel(
             name='Member',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
@@ -46,6 +61,7 @@ class Migration(migrations.Migration):
                 ('church_activity', models.CharField(max_length=255)),
                 ('profession', models.CharField(max_length=255)),
                 ('additional_remarks', models.CharField(max_length=255)),
+                ('contact', models.OneToOneField(to='phillipo.Contact')),
             ],
         ),
     ]

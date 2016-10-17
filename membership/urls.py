@@ -14,4 +14,5 @@ urlpatterns = [
     url(r'^members/(?P<month>[\w\-]+)/$','phillipo.views.memberMonth'),
     url(r'^search/$','phillipo.views.search'),
     url(r'^search/(?P<query>[\w\-]+)/$','phillipo.views.searchq'),
+    url(r'^register/$','phillipo.views.register'),
 ]

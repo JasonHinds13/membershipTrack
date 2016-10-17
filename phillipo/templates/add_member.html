@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}Add Member{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}">
+
+<h2>Member Info</h2>
+
+<form method="POST" action="">
+
+{{ memform.as_p }}
+
+<h2>Emergency Contact Info</h2>
+
+{{ contactform.as_p }}
+
+<input type="submit" value="Register"/>
+
+</form>
+
+{% endblock %}
