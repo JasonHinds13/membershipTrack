@@ -34,6 +34,45 @@ EDUCATION = (
     ('Tertiary','Tertiary'),
 )
 
+YN = (
+    ('Yes','Yes'),
+    ('No','No'),
+)
+
+STATUS = (
+    ('Current','Current'),
+    ('Inactive','Inactive'),
+    ('Migrated','Migrated'),
+    ('Transfered','Transfered'),
+    ('Shut-in','Shut-in'),
+)
+
+ACTIVITIES = (
+    ('Brotherhood','Brotherhood'),
+    ('Womens Federation','Womens Federation'),
+    ('Ushers Board','Ushers Board'),
+    ('Youth Fellowship','Youth Fellowship'),
+    ('Young Adult','Young Adult'),
+)
+
+MINISTRIES = (
+    ('Audio Visual','Audio Visual'),
+    ('Creative Arts','Creative Arts'),
+    ('Family Life','Family Life'),
+    ('Education/Continuing Education Programme','Education/Continuing Education Programme'),
+    ('Harvest','Harvest'),
+    ('Hospitatlity','Hospitatlity'),
+    ('Mission/Evangelism','Mission/Evangelism'),
+    ('Medicare, Counselling and Healing','Medicare, Counselling and Healing'),
+    ('Music','Music'),
+    ('Property and Building','Property and Building'),
+    ('Social Outreach','Social Outreach'),
+    ('Sports Ministry','Sports Ministry'),
+    ('Sunday School','Sunday School'),
+    ('Stewartship/Training','Stewartship/Training'),
+    ('Welfare/Benevolence','Welfare/Benevolence'),
+)
+
 # Create your models here.
 
 class Contact(models.Model):
@@ -56,6 +95,11 @@ class Member(models.Model):
     name = models.CharField(max_length=255, null=True, blank=True)
     gender = models.CharField(max_length=255, choices=GENDER, null=True, blank=True)
     classNumber = models.CharField(max_length=255, null=True, blank=True)
+
+    memberNumber = models.CharField(max_length=255, null=True, blank=True)
+    employed = models.CharField(max_length=255, choices=YN, null=True, blank=True)
+    pensioner = models.CharField(max_length=255, choices=YN, null=True, blank=True)
+    membership_status = models.CharField(max_length=255, choices=STATUS, null=True, blank=True)
 
     home_phonenumber = models.CharField(max_length=255, null=True, blank=True)
     cell_phonenumber = models.CharField(max_length=255, null=True, blank=True)
@@ -93,7 +137,8 @@ class Member(models.Model):
     date_of_phillippo_membership = models.CharField(max_length=255, null=True, blank=True)
 
     clubs = models.CharField(max_length=255, null=True, blank=True)
-    church_activity = models.CharField(max_length=255, null=True, blank=True)
+    church_activity = models.CharField(max_length=255, choices=ACTIVITIES, null=True, blank=True)
+    special_ministries = models.CharField(max_length=255, choices=MINISTRIES, null=True, blank=True)
     profession = models.CharField(max_length=255, null=True, blank=True)
 
     additional_remarks = models.CharField(max_length=255, null=True, blank=True)
