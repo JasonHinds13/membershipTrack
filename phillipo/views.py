@@ -8,6 +8,7 @@ from phillipo.models import Member, Contact
 from phillipo.forms import ContactForm, MemberForm
 from phillipo.serializers import MemberSerializer, ContactSerializer
 from django.views.decorators.csrf import csrf_exempt,csrf_protect
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
