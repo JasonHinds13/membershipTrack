@@ -61,6 +61,7 @@ MINISTRIES = (
     ('Creative Arts','Creative Arts'),
     ('Family Life','Family Life'),
     ('Education/Continuing Education Programme','Education/Continuing Education Programme'),
+    ('Golden Cirlce Club', 'Golden Cirlce Club')
     ('Harvest','Harvest'),
     ('Hospitatlity','Hospitatlity'),
     ('Mission/Evangelism','Mission/Evangelism'),
