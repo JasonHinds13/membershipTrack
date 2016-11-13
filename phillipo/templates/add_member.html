@@ -9,8 +9,8 @@
 
 <h2>Member Info</h2>
 
-<form method="POST" action="">
-
+<form method="POST" action='{% url "phillipo.views.register" %}' enctype="multipart/form-data">
+{% csrf_token %}
 <div class="formbox">
 {{ memform.as_p }}
 </div>

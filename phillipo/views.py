@@ -9,6 +9,7 @@ from phillipo.forms import ContactForm, MemberForm
 from phillipo.serializers import MemberSerializer, ContactSerializer
 from django.views.decorators.csrf import csrf_exempt,csrf_protect
 from django.contrib.auth.decorators import login_required
+from cloudinary.forms import cl_init_js_callbacks
 
 # Create your views here.
 
@@ -56,7 +57,7 @@ def searchq(request, query):
 @csrf_exempt
 @login_required(login_url='/admin/login/')
 def register(request):
-    memform = MemberForm(request.POST or None)
+    memform = MemberForm(request.POST or None, request.FILES)
     contactform = ContactForm(request.POST or None)
 
     if memform.is_valid() and contactform.is_valid():
