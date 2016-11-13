@@ -4,7 +4,7 @@ from phillipo.models import Member, Contact
 class MemberSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Member
-		fields = ('id','photo','name', 'gender','home_address','work_address',
+		fields = ('id','photo','title','name', 'gender','home_address','work_address',
 		          'cell_phonenumber','website','previous_church',
 				  'envelope_Number','employed','pensioner','membership_status',
 				  'special_ministries','place_of_birth','birth_month',
