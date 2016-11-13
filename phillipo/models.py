@@ -49,10 +49,11 @@ STATUS = (
 
 ACTIVITIES = (
     ('Brotherhood','Brotherhood'),
-    ('Womens Federation','Womens Federation'),
-    ('Ushers Board','Ushers Board'),
+    ("Women's Federation","Women's Federation"),
+    ("Usher's Board","Usher's Board"),
     ('Youth Fellowship','Youth Fellowship'),
     ('Young Adult','Young Adult'),
+    ("Decon's Board", "Decon's Board"),
 )
 
 MINISTRIES = (
@@ -71,6 +72,13 @@ MINISTRIES = (
     ('Sunday School','Sunday School'),
     ('Stewartship/Training','Stewartship/Training'),
     ('Welfare/Benevolence','Welfare/Benevolence'),
+)
+
+CONTACT = (
+    ('Email', 'Email'),
+    ('Text', 'Text'),
+    ('Both', 'Both'),
+    ('Neither', 'Neither'),
 )
 
 # Create your models here.
@@ -96,7 +104,7 @@ class Member(models.Model):
     gender = models.CharField(max_length=255, choices=GENDER, null=True, blank=True)
     classNumber = models.CharField(max_length=255, null=True, blank=True)
 
-    memberNumber = models.CharField(max_length=255, null=True, blank=True)
+    envelope_Number = models.CharField(max_length=255, null=True, blank=True)
     employed = models.CharField(max_length=255, choices=YN, null=True, blank=True)
     pensioner = models.CharField(max_length=255, choices=YN, null=True, blank=True)
     membership_status = models.CharField(max_length=255, choices=STATUS, null=True, blank=True)
@@ -129,6 +137,7 @@ class Member(models.Model):
     qualification = models.CharField(max_length=255, null=True, blank=True)
     skills = models.CharField(max_length=255, null=True, blank=True)
     hobbies = models.CharField(max_length=255, null=True, blank=True)
+    spiritual_gifts = models.CharField(max_length=255, null=True, blank=True)
 
     date_of_conversion= models.CharField(max_length=255, null=True, blank=True)
     date_of_baptism = models.CharField(max_length=255, null=True, blank=True)
@@ -137,9 +146,11 @@ class Member(models.Model):
     date_of_phillippo_membership = models.CharField(max_length=255, null=True, blank=True)
 
     clubs = models.CharField(max_length=255, null=True, blank=True)
-    church_activity = models.CharField(max_length=255, choices=ACTIVITIES, null=True, blank=True)
+    auxilliary = models.CharField(max_length=255, choices=ACTIVITIES, null=True, blank=True)
     special_ministries = models.CharField(max_length=255, choices=MINISTRIES, null=True, blank=True)
     profession = models.CharField(max_length=255, null=True, blank=True)
+
+    how_can_the_church_contact_you = models.CharField(max_length=255, choices=CONTACT, null=True, blank=True)
 
     additional_remarks = models.CharField(max_length=255, null=True, blank=True)
 

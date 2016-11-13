@@ -11,13 +11,16 @@ from django.views.decorators.csrf import csrf_exempt,csrf_protect
 
 # Create your views here.
 
+@login_required(login_url='/admin/login/')
 def index(request):
     return render_to_response('index.html')
 
+@login_required(login_url='/admin/login/')
 def showMembers(request):
     members = Member.objects.all()
     return render_to_response('members.html', {"members":members})
 
+@login_required(login_url='/admin/login/')
 def memberMonth(request, month):
     members = Member.objects.all()
     results = []
@@ -28,10 +31,12 @@ def memberMonth(request, month):
 
     return render_to_response('members.html', {"members":results})
 
+@login_required(login_url='/admin/login/')
 def search(request):
     members = Member.objects.all()
     return render_to_response('search.html', {"members":members})
 
+@login_required(login_url='/admin/login/')
 def searchq(request, query):
     members = Member.objects.all()
     results = []
@@ -48,6 +53,7 @@ def searchq(request, query):
     return render_to_response('search.html', {"members":results})
 
 @csrf_exempt
+@login_required(login_url='/admin/login/')
 def register(request):
     memform = MemberForm(request.POST or None)
     contactform = ContactForm(request.POST or None)
