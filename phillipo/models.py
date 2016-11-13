@@ -81,6 +81,12 @@ CONTACT = (
     ('Neither', 'Neither'),
 )
 
+TITLE = (
+    ('Mr.','Mr.'),
+    ('Miss','Miss'),
+    ('Mrs.','Mrs.'),
+)
+
 # Create your models here.
 
 class Contact(models.Model):
@@ -100,6 +106,7 @@ class Contact(models.Model):
 class Member(models.Model):
     photo = CloudinaryField('pro_pic', null=True, blank=True)
 
+    title = models.CharField(max_length=255, choices=TITLE, null=True, blank=True)
     name = models.CharField(max_length=255, null=True, blank=True)
     gender = models.CharField(max_length=255, choices=GENDER, null=True, blank=True)
     classNumber = models.CharField(max_length=255, null=True, blank=True)
